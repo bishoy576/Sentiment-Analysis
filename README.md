@@ -10,6 +10,7 @@ The mapping from scores to classes is summarized in the below table. assume all 
 | 0.4-0.6   | 2     | Neutral         |
 | 0.6-0.8   | 3     | Positive        |
 | 0.8-1.0   | 4     | Very Positive   |
+ 
 
 I use Naive Bayes and Logistic regression classifiers built from scratch using only numpy.
 Then I compare my results to scikit-learn's implementation of [MultiNomialNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html), [SGDClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html), and [LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html).
@@ -20,7 +21,11 @@ chapter 4.
  # Achieved exactly Identical results to scickit-learn's MultiNomialNB.
 
 The Logistic regression implementation was also loosely based on chapter 5 of the same textbook.
+
+I used simple bigram features for training and testing As an example, the sentence “I love this movie very much” has 5 word bi-gram features namely (‘I’, ‘love’), (‘love’, ‘this’) and so on. Each sentence is represented with a vector of length equal to the number of unique word bi-grams in the whole dataset with 1 at the corresponding index if the bi-gram exists and 0 otherwise.
 I used Stochastic Gradient descent for optimization and no regularization .
+
+
 in the `logistic_regression_from_scratch_and_SGDcalsifier` notebook I compare the results of my implementaion with SGDcLassifier.
 The results are nearly identical with only slight diffrences likely due to numerical precision reasons.
 
